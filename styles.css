@@ -1,0 +1,150 @@
+/* styles.css — single stylesheet for the whole site
+   Demonstrates: type, class, id, and attribute selectors; flex and grid layouts;
+   hover effects; spacing; borders; colors; font settings. */
+
+/* ---- Reset-ish & base ---- */
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+/* Type selector examples */
+h1, h2, h3 { line-height: 1.25; }
+p { margin: 0.5rem 0 1rem; }
+ul, ol { padding-left: 1.25rem; }
+
+/* Layout: a top bar (flex) and page wrapper */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-bottom: 4px solid #1d4ed8;
+}
+.header .brand { display: flex; align-items: center; gap: 0.5rem; }
+.header img.logo { width: 36px; height: 36px; }
+
+/* Nav — consistent across pages (flex) */
+.nav {
+  margin-left: auto;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.nav a {
+  display: inline-block;
+  padding: 0.4rem 0.65rem;
+  text-decoration: none;
+  color: #e2e8f0;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+.nav a:hover, .nav a:focus {
+  background: #1d4ed8;
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+.nav a[aria-current="page"] { background: #1e293b; border-color: #475569; }
+
+/* Main wrapper */
+.wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* Cards and grid on home (CSS Grid) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 1px rgba(0,0,0,.03);
+}
+.card h3 { margin-top: 0.25rem; }
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+th, td { padding: 0.75rem; border-bottom: 1px solid #e5e7eb; }
+thead th { background: #eff6ff; text-align: left; }
+tbody tr:hover { background: #f8fafc; }
+
+/* Lists with custom bullets (class selector) */
+.list-check > li { margin: 0.25rem 0; }
+.list-check > li::marker { content: "✓  "; color: #16a34a; font-weight: 700; }
+
+/* Key concepts layout */
+.keygrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+.key {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 6px solid #1d4ed8;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #0f172a;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  border-top: 4px solid #1d4ed8;
+}
+.footer a { color: #93c5fd; }
+
+/* ID selector example */
+#toc {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 6px solid #16a34a;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin: 1rem 0;
+}
+
+/* Attribute selector example: external links get an icon */
+a[href^="http"]::after {
+  content: " ↗";
+  font-size: 0.9em;
+  opacity: 0.65;
+}
+
+/* Responsive images */
+img.responsive { max-width: 100%; height: auto; border-radius: 0.5rem; border: 1px solid #e5e7eb; }
+
+/* Code snippets */
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.4rem;
+}
+code { padding: 0.1rem 0.3rem; }
+pre { padding: 0.75rem; overflow: auto; }
