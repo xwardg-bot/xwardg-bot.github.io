@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz — Browsers Self-Assessment</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Self-assessment quiz for the Browsers: Past, Present, and Possible Futures project website.">
+</head>
+<body>
+  <!-- Site header + main menu (consistent on every page) -->
+  <header class="header">
+    <div class="brand">
+      <img class="logo" src="assets/logo.svg" alt="Project logo">
+      <strong>Browsers</strong>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="history.html">History</a>
+      <a href="market.html">Market</a>
+      <a href="privacy-regulation.html">Privacy &amp; Regulation</a>
+      <a href="platform.html">Browser as a Platform</a>
+      <a href="concepts.html">Key Concepts</a>
+      <a href="references.html">References</a>
+      <a href="quiz.html" aria-current="page">Quiz</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="wrapper">
+    <h1>Self-Assessment Quiz</h1>
+    <p>Use this short quiz to check your understanding of modern web browsers after reading the sections on
+      history, the market, privacy &amp; regulation, platforms, and key concepts.</p>
+    <p><strong>Instructions:</strong> Answer each question, then click <em>Check my answers</em>. Your score and detailed
+      feedback for each question will appear below the form. You can retake the quiz as many times as you like.</p>
+
+    <form id="browser-quiz" class="quiz-form">
+      <!-- Q1: Filling-blank (short answer) -->
+      <section class="quiz-section">
+        <h2>1. Short answer: Firefox&apos;s engine</h2>
+        <div class="quiz-question">
+          <label for="q1">
+            The browser engine used by Mozilla Firefox is called
+            <span class="blank">________</span>.
+          </label>
+          <input type="text" id="q1" name="q1" required>
+          <p class="quiz-hint">Hint: see the <em>Engines &amp; Examples</em> table on the History page.</p>
+          <div id="q1-feedback" class="quiz-feedback" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- Q2–Q4: Multiple choice (single correct answer) -->
+      <section class="quiz-section">
+        <h2>2–4. Multiple choice</h2>
+
+        <div class="quiz-question">
+          <h3>2. What does a browser engine do?</h3>
+          <p class="quiz-hint">Think back to the &ldquo;Browser Engine&rdquo; section on the Key Concepts page.</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="a" required> It stores user passwords and bookmarks in the cloud.</label>
+            <label><input type="radio" name="q2" value="b"> It parses HTML/CSS/JS and turns them into pixels on the screen.</label>
+            <label><input type="radio" name="q2" value="c"> It replaces the operating system kernel.</label>
+            <label><input type="radio" name="q2" value="d"> It only handles network requests and cookies.</label>
+          </div>
+          <div id="q2-feedback" class="quiz-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>3. Which company primarily develops the Blink engine?</h3>
+          <div class="options">
+            <label><input type="radio" name="q3" value="a" required> Apple</label>
+            <label><input type="radio" name="q3" value="b"> Google</label>
+            <label><input type="radio" name="q3" value="c"> Mozilla</label>
+            <label><input type="radio" name="q3" value="d"> Microsoft</label>
+          </div>
+          <div id="q3-feedback" class="quiz-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="quiz-question">
+          <h3>4. Why do some developers worry about an &ldquo;engine monoculture&rdquo;?</h3>
+          <div class="options">
+            <label><input type="radio" name="q4" value="a" required> It makes testing simpler, so bugs are harder to find.</label>
+            <label><input type="radio" name="q4" value="b"> It could concentrate power in a single engine and reduce competition.</label>
+            <label><input type="radio" name="q4" value="c"> It forces all browsers to be open source.</label>
+            <label><input type="radio" name="q4" value="d"> It disables privacy protections by default.</label>
+          </div>
+          <div id="q4-feedback" class="quiz-feedback" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- Q5: Multi-selection (checkboxes with more than one correct choice) -->
+      <section class="quiz-section">
+        <h2>5. Multi-select: Progressive Web Apps</h2>
+        <div class="quiz-question">
+          <p>Which of the following capabilities are commonly associated with Progressive Web Apps (PWAs)?</p>
+          <p class="quiz-hint">Select <strong>all</strong> that apply.</p>
+          <div class="options options-multi">
+            <label><input type="checkbox" name="q5" value="offline"> Offline support via service workers</label>
+            <label><input type="checkbox" name="q5" value="push"> Push notifications</label>
+            <label><input type="checkbox" name="q5" value="homescreen"> Installable icons on the home screen</label>
+            <label><input type="checkbox" name="q5" value="kernel"> Direct access to the OS kernel without permissions</label>
+          </div>
+          <div id="q5-feedback" class="quiz-feedback" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <div class="quiz-actions">
+        <button type="submit" class="btn btn-primary">Check my answers</button>
+        <button type="button" id="reset-quiz" class="btn btn-secondary">Reset quiz</button>
+      </div>
+    </form>
+
+    <!-- Overall summary shown after submission -->
+    <section id="quiz-summary" class="quiz-summary" aria-live="polite" hidden>
+      <h2>Your results</h2>
+      <p id="quiz-overall" class="quiz-overall"></p>
+      <p id="quiz-score" class="quiz-score"></p>
+      <p class="quiz-retake-hint">Scroll up to review the feedback for each question. You can change your answers and click
+        <em>Check my answers</em> again to try for a higher score.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Class project notice:</strong> This website is created for <em>IT 3203 Web Development</em>.
+      See the course site: <a href="https://ksuweb.github.io/IT3203/">https://ksuweb.github.io/IT3203/</a></p>
+    <p>&copy; 2025 Gray Ward • Built with semantic HTML and a single CSS file. Validate via
+      <a href="https://validator.w3.org/">W3C HTML Validator</a>.</p>
+  </footer>
+
+  <!-- Quiz logic implemented in a dedicated script file -->
+  <script src="quiz.js"></script>
+</body>
+</html>
